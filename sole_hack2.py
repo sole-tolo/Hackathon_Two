@@ -65,5 +65,9 @@ if submitted:
     #Faire une prédiction avec le modèle
     prediction = model.predict(user_df)
 
+    st.write(model.score(X_train,y_train))
+    st.write(model.score(X_test,y_test))
+
+
     st.write('Votre score prédit est :', prediction[0])  
 
