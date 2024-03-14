@@ -9,8 +9,8 @@ csv_content = response.text
 
 # Mise en forme de la page
 st.title('Bienvenue dans le meilleur des mondes')
-st.write("Notez-vous les uns les autres")
-s
+st.header("Notez-vous les uns les autres")
+
 t.title("Tu es seul.e pour cette Saint Valentin? Tu ne sais pas quoi manger, ni quoi écouter.. bref, tu es perdu.e?")
 st.header("Ici on t'aide avec quelques tips un peu bidon")
 # st.image(lien_image2)
