@@ -28,12 +28,12 @@ options = {
     'Va souvent au cinéma': ['Oui', 'Non']
 }
 
-with st.form("Quelle est ta valeur?")
+with st.form("Quelle est ta valeur?"):
 # je vais créer mes widgets
-user_data = {}
-for key, values in options.items():
-    user_data[key] = st.selectbox(key, values)
-submitted = st.form_submit_button("Submit")
+    user_data = {}
+    for key, values in options.items():
+        user_data[key] = st.selectbox(key, values)
+    submitted = st.form_submit_button("Submit")
 
 # Si le formulaire est soumis je crée un df avec les données de l'utilisateur
 if submitted:
