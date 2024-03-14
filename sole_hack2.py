@@ -23,6 +23,7 @@ options = {
     'Casier judiciaire': ['Vierge', 'Non vierge'],
     'Niveau social des parents': ['Bac', 'Bac +2', 'Bac +3', 'Bac +5', 'Doctorat', 'Pas de diplôme'],
     'Va souvent au cinéma': ['Oui', 'Non']
+
 }
 
 # Création du formulaire
@@ -45,7 +46,8 @@ if submitted:
     st.dataframe(df)
     # j'encode les données utilisateur avec les mêmes catégories que celles de la df d'entraînement
     label_encoder = LabelEncoder()
-    for colonne in user_df.columns:
+
+    for colonne in user_df.select_dtypes(include=['object']).columns:
         user_df[colonne] = label_encoder.fit(user_df[colonne]).transform(user_df[colonne])
 
     # je défini mes variables 
