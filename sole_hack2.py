@@ -8,10 +8,6 @@ from sklearn.model_selection import train_test_split
 url = 'https://raw.githubusercontent.com/sole-tolo/Hackathon_Two/main/data_hack2.csv'
 df = pd.read_csv(url)
 
-# Mise en forme de la page
-st.title('Bienvenue dans le meilleur des mondes')
-st.header('Notez-vous les uns les autres')
-
 # Définition du code HTML/CSS pour définir une image en fond d'écran
 background = """
 <style>
@@ -24,6 +20,10 @@ body {
 
 # Affichage du code HTML/CSS avec st.markdown
 st.markdown(background, unsafe_allow_html=True)
+
+# Mise en forme de la page
+st.title('Bienvenue dans le meilleur des mondes')
+st.header('Notez-vous les uns les autres')
 
 # Contenu dans la barre latérale à gauche
 with st.sidebar:
