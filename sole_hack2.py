@@ -12,8 +12,8 @@ df = pd.read_csv(url)
 col1, col2, col3 = st.columns([1, 3, 1])
 
 with col2:  # Colonne centrale
-    st.title('Bienvenue dans le meilleur des mondes,là où nous sommes tous heureux et heureuses')
-    st.header("Un monde où n'importe qui voudrait vivre")
+    st.title('Bienvenue dans le meilleur des mondes')
+    st.header("un monde où n'importe qui voudrait vivre")
     # Insérer d'autres éléments au besoin
 
 # Ajouter des colonnes vides pour l'espacement
