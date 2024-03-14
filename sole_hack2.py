@@ -25,8 +25,9 @@ col3.write("")
 with col2:
     image_path = "https://static.wixstatic.com/media/ede727_f05b8b1ac9f74d8ea06caac1590ad3e3~mv2.jpeg/v1/fill/w_1000,h_524,al_c,q_85,usm_0.66_1.00_0.01/ede727_f05b8b1ac9f74d8ea06caac1590ad3e3~mv2.jpeg"
     st.image(image_path, caption="Your Image", use_column_width=800)
+    st.header('Prenez quelques minutes pour découvrir TOP5, notre nouveau système de notation du bonheur')
 
-st.header('Prenez quelques minutes pour découvrir TOP5, notre nouveau système de notation du bonheur')
+
 
 # je crée les widgets 
 options = {
