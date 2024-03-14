@@ -115,7 +115,7 @@ with st.sidebar:
         # Afficher la prédiction
         st.markdown('## Ta valeur de base est :')
         st.image('https://previews.123rf.com/images/misteremil/misteremil1711/misteremil171100025/89192907-5-%C3%A9toiles-de-notation-isol%C3%A9es-sur-fond-blanc.jpg', width=100)
-        st.write(prediction[0]:.2f)
+        st.write(f'Ta valeur de base est {prediction[0]:.2f}**')
         # # Afficher la prédiction
         # st.write('Votre score prédit est :', prediction[0])
         # Afficher la prédiction au centre de la page
