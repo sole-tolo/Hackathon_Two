@@ -14,6 +14,7 @@ col1, col2, col3 = st.columns([1, 3, 1])
 with col2:  # Colonne centrale
     st.title('Bienvenue dans le meilleur des mondes')
     st.header('Notez-vous les uns les autres')
+    st.header('Prenez quelques minutes pour connaitre votre note actuelle')
     # Insérer d'autres éléments au besoin
 
 # Ajouter des colonnes vides pour l'espacement
