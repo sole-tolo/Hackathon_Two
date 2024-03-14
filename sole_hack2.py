@@ -43,6 +43,7 @@ if submitted:
 
     # Construire X avec les données de l'utilisateur
     X = user_df
+    y = df['Score']  
 
     # j'encode les données pour l'algo
     label_encoder = LabelEncoder()
