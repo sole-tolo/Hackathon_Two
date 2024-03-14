@@ -9,44 +9,49 @@ url = 'https://raw.githubusercontent.com/sole-tolo/Hackathon_Two/main/data_hack2
 df = pd.read_csv(url)
 
 # Mise en forme de la page
-st.title("Votez-vous les uns les autres")
+st.title("Évaluation de la participation à une réunion virtuelle")
 
-# Conteneur de colonnes pour centrer le contenu
-col1, col2, col3 = st.columns([1, 3, 1])
+# Conteneur de colonnes pour ajuster la mise en page
+col1, col2 = st.columns([1, 3])
 
-# Contenu principal centré
-with col2:
-    # Image à côté du texte
+# Contenu de la première colonne (image)
+with col1:
+    # Image alignée à gauche
     image_path = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mirror_logo.svg/1200px-Black_Mirror_logo.svg.png"
-    st.image(image_path, caption="Your Image", use_column_width=500)
+    st.image(image_path, caption="Your Image", use_column_width=True)
+
+# Contenu de la deuxième colonne (texte)
+with col2:
+    # Titre et description
+    st.write("# Votez-vous les uns les autres.")
+    st.write("Répondez aux questions suivantes pour évaluer la participation à une réunion virtuelle.")
 
 # Initialisation du score
 score = 0
 
-# Création du formulaire centré
-with col2:
-    with st.form("evaluation_form"):
-        # Question 1: Allumé la caméra pendant les présentations?
-        camera_on = st.radio("A-t-il allumé la caméra pendant les présentations?", ("Oui", "Non"))
-        if camera_on == "Oui":
+# Création du formulaire
+with st.form("evaluation_form"):
+    # Question 1: Allumé la caméra pendant les présentations?
+    camera_on = st.radio("A-t-il allumé la caméra pendant les présentations?", ("Oui", "Non"))
+    if camera_on == "Oui":
+        score += 0.5
+
+    # Question 2: Sourit-il pendant les présentations des autres?
+    smiling = st.radio("Sourit-il pendant les présentations des autres?", ("Oui", "Non"))
+    if smiling == "Oui":
+        score += 0.5
+
+    # Question 3 (si la caméra est allumée): Le décor est-il crédible?
+    if camera_on == "Oui":
+        credible_decor = st.radio("Si la caméra est allumée, est-ce que son décor est crédible?", ("Oui", "Non"))
+        if credible_decor == "Oui":
             score += 0.5
 
-        # Question 2: Sourit-il pendant les présentations des autres?
-        smiling = st.radio("Sourit-il pendant les présentations des autres?", ("Oui", "Non"))
-        if smiling == "Oui":
-            score += 0.5
+    # Question 4: Penses-tu que ton collègue est sociable?
+    sociable = st.radio("Penses-tu que ton collègue est sociable?", ("Oui", "Non"))
 
-        # Question 3 (si la caméra est allumée): Le décor est-il crédible?
-        if camera_on == "Oui":
-            credible_decor = st.radio("Si la caméra est allumée, est-ce que son décor est crédible?", ("Oui", "Non"))
-            if credible_decor == "Oui":
-                score += 0.5
-        
-        # Question 4: Penses-tu que ton collègue est sociable?
-        sociable = st.radio("Penses-tu que ton collègue est sociable?", ("Oui", "Non"))
-
-        # Soumission du formulaire
-        submit_button = st.form_submit_button("Submit")
+    # Soumission du formulaire
+    submit_button = st.form_submit_button("Submit")
 
 # Affichage du score final après la soumission du formulaire
 if submit_button:
