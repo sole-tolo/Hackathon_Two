@@ -28,7 +28,8 @@ options = {
 # Création du formulaire
 with st.form("Quelle est ta valeur?"):
     # Création des widgets
-    user_data = {}
+    user_data = {'Niveau de diplôme':'','Quartier':'','Salaire':0,'Classe sociale':'','École des enfants':'','Dispose de femme de ménage':'', 
+                 "Prix au mètre carré de l'habitation(€/m2)":0,'Casier judiciaire':'',"Niveau social des parents":"",'Va souvent au cinéma':""}
     user_data['Salaire(€)'] =st.number_input("Salaire")
     user_data["Prix au mètre carré de l'habitation(€/m2)"] =st.number_input("prix au m2 de ton lieu d'habitation")
 
