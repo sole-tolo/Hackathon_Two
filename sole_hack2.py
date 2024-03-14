@@ -21,19 +21,19 @@ for colonne in df.columns:
         valeur = st.text_input(colonne, "")
         input_public[colonne] = valeur
 
-# Algo de recommandation
-label_encoder = LabelEncoder()
-for colonne in df.columns:
-    if colonne != 'Score':
-        input_public[colonne] = label_encoder.fit_transform([input_public[colonne]])[0]
+# # Algo de recommandation
+# label_encoder = LabelEncoder()
+# for colonne in df.columns:
+#     if colonne != 'Score':
+#         input_public[colonne] = label_encoder.fit_transform([input_public[colonne]])[0]
 
-X = df.drop(columns=['Score'])
-y = df['Score']
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-model = LinearRegression()
-model.fit(X_train, y_train)
+# X = df.drop(columns=['Score'])
+# y = df['Score']
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# model = LinearRegression()
+# model.fit(X_train, y_train)
 
-prediction = model.predict([list(input_public.values())])
+# prediction = model.predict([list(input_public.values())])
 
-st.write("Score prédit :", prediction[0])
+# st.write("Score prédit :", prediction[0])
 
