@@ -74,9 +74,9 @@ with st.sidebar:
         # Faire une prédiction avec le modèle
         prediction = model.predict(user_df)
 
-        # Afficher les scores R² du modèle sur les ensembles d'entraînement et de test
-        st.write(model.score(X_train, y_train))
-        st.write(model.score(X_test, y_test))
-
         # Afficher la prédiction
-        st.write('Votre score prédit est :', prediction[0])
+        st.markdown('## Votre score prédit :')
+        st.image('https://previews.123rf.com/images/misteremil/misteremil1711/misteremil171100025/89192907-5-%C3%A9toiles-de-notation-isol%C3%A9es-sur-fond-blanc.jpg', width=100)
+        st.write(f'**{prediction[0]:.2f}**')
+        # # Afficher la prédiction
+        # st.write('Votre score prédit est :', prediction[0])
