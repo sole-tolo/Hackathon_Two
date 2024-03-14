@@ -46,7 +46,7 @@ if submitted:
     # j'encode les données utilisateur avec les mêmes catégories que celles de la df d'entraînement
     label_encoder = LabelEncoder()
     for colonne in user_df.columns:
-        user_df[colonne] = label_encoder.fit(df[colonne]).transform(user_df[colonne])
+        user_df[colonne] = label_encoder.fit(user_df[colonne]).transform(user_df[colonne])
 
     # je défini mes variables 
     X = df.drop(columns=['Score'])
