@@ -15,7 +15,7 @@ st.title("Évaluation de la participation à une réunion virtuelle")
 col1, col2, col3 = st.columns([1, 3, 1])
 
 # Contenu principal centré
-with col2:
+with col1:
     # Texte
     st.write("Votez-vous les uns les autres.")
 
