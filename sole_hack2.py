@@ -10,4 +10,4 @@ st.title('Bienvenue dans le meilleur des mondes')
 st.write("Notez-vous les uns les autres")
 
 # Affichage du DataFrame
-st.write(df)
+st.write(df)  
