@@ -29,7 +29,7 @@ def faire_prediction(df, model, user_df):
 df = charger_donnees()
 
 # Mise en forme de la page
-st.title('Bienvenue dans le meilleur des mondes
+st.title('Bienvenue dans le meilleur des mondes')
 
 
 # import streamlit as st
