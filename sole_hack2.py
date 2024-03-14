@@ -9,7 +9,7 @@ url = 'https://raw.githubusercontent.com/sole-tolo/Hackathon_Two/main/data_hack2
 df = pd.read_csv(url)
 
 # Mise en forme de la page
-st.title("Évaluation de la participation à une réunion virtuelle")
+st.title("Le meilleur des mondes est possible")
 
 # Conteneur de colonnes pour ajuster la mise en page
 col1, col2 = st.columns([1, 3])
@@ -24,7 +24,7 @@ with col1:
 with col2:
     # Titre et description
     st.write("# Votez-vous les uns les autres.")
-    st.write("Répondez aux questions suivantes pour évaluer la participation à une réunion virtuelle.")
+    
 
 # Initialisation du score
 score = 0
