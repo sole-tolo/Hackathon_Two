@@ -33,7 +33,7 @@ with st.form("Quelle est ta valeur?"):
     user_data = {}
     for key, values in options.items():
         user_data[key] = st.selectbox(key, values)
-    submitted = st.form_submit_button("On y va, c'est magnifique, tu es magnifique")
+    submitted = st.form_submit_button("Yes, you are gorgeous")
 
 # Si le formulaire est soumis je crée un df avec les données de l'utilisateur
 if submitted:
