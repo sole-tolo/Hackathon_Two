@@ -16,6 +16,13 @@ st.header('Notez-vous les uns les autres')
 
 
 model = LinearRegression()
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+model.fit(X_train, y_train)
+X = df.drop(columns=['Score'])
+y = df['Score']
+
+# je crée les widgets 
+
 options = {
     'Niveau de diplôme': ['Bac', 'Bac +2', 'Bac +3', 'Bac +5', 'Doctorat', 'Pas de diplôme'],
     'Genre': ['Homme', 'Femme', 'Autre'],
@@ -44,6 +51,10 @@ if submitted:
 label_encoder = LabelEncoder()
 for colonne in user_df.columns:
     user_df[colonne] = label_encoder.fit_transform(user_df[colonne])
+
+# j'entraine le modèle
+    
+
 
 prediction = model.predict(user_df)
 
