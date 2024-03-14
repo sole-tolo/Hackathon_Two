@@ -8,35 +8,25 @@ from sklearn.model_selection import train_test_split
 url = 'https://raw.githubusercontent.com/sole-tolo/Hackathon_Two/main/data_hack2.csv'
 df = pd.read_csv(url)
 
-st.markdown(
-    """
-    <style>
-        /* Aligner tout le contenu à gauche */
-        .css-1v4eu6x {
-            justify-content: flex-start !important;
-            text-align: left !important;
-        }
-        /* Aligner la barre latérale à gauche */
-        .sidebar-content {
-            width: auto !important;
-            margin-left: 0 !important;
-            margin-right: auto !important;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 # Mise en forme de la page
-st.title('Bienvenue dans le meilleur des mondes')
-st.header('Notez-vous les uns les autres')
-# st.image(lien_image2)
-col1, col2,col3 = st.columns([1, 3, 1])
+col1, col2, col3 = st.columns([1, 3, 1])
+
+with col2:  # Colonne centrale
+    st.title('Bienvenue dans le meilleur des mondes')
+    st.header('Notez-vous les uns les autres')
+    
+    # Insérer d'autres éléments au besoin
+
+# Ajouter des colonnes vides pour l'espacement
 col1.write("")
-image_path = "https://static.wixstatic.com/media/ede727_f05b8b1ac9f74d8ea06caac1590ad3e3~mv2.jpeg/v1/fill/w_1000,h_524,al_c,q_85,usm_0.66_1.00_0.01/ede727_f05b8b1ac9f74d8ea06caac1590ad3e3~mv2.jpeg"
-col2.image(image_path, caption="Your Image", use_column_width=True)
-col2.write("")
 col3.write("")
+
+# Afficher une image centrée dans la colonne du milieu
+with col2:
+    image_path = "https://static.wixstatic.com/media/ede727_f05b8b1ac9f74d8ea06caac1590ad3e3~mv2.jpeg/v1/fill/w_1000,h_524,al_c,q_85,usm_0.66_1.00_0.01/ede727_f05b8b1ac9f74d8ea06caac1590ad3e3~mv2.jpeg"
+    st.image(image_path, caption="Your Image", use_column_width=800)
+
+st.header('Prenez quelques minutes pour découvrir TOP5, notre nouveau système de notation du bonheur')
 
 # je crée les widgets 
 options = {
