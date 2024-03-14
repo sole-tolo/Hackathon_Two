@@ -15,7 +15,6 @@ st.header('Notez-vous les uns les autres')
 # je crée les widgets 
 options = {
     'Niveau de diplôme': ['Bac', 'Bac +2', 'Bac +3', 'Bac +5', 'Doctorat', 'Pas de diplôme'],
-    'Genre': ['Homme', 'Femme', 'Autre'],
     'Quartier': ['Centre-ville', 'Banlieue', 'Campagne'],
     'Classe sociale': ['Classe moyenne', 'Classe supérieure', 'Classe populaire'],
     'École des enfants': ['Privée', 'Publique'],
@@ -30,7 +29,6 @@ options = {
 with st.form("Quelle est ta valeur?"):
     # Création des widgets
     user_data = {}
-    user_data['Age'] =st.number_input("Age")
     user_data['Salaire(€)'] =st.number_input("Salaire")
     user_data["Prix au mètre carré de l'habitation(€/m2)"] =st.number_input("prix au m2 de ton lieu d'habitation")
 
@@ -55,7 +53,7 @@ if submitted:
         user_df[colonne] = label_encoder.fit(user_df[colonne]).transform(user_df[colonne])
 
     # je défini mes variables 
-    X = df.drop(columns=['Score'])
+    X = df.drop(columns=['Score','Age','Genre'])
     y = df['Score']  
 
     # Entraîner le modèle
