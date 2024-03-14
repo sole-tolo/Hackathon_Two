@@ -11,6 +11,13 @@ df = pd.read_csv(url)
 # Mise en forme de la page
 st.title('Bienvenue dans le meilleur des mondes')
 st.header('Notez-vous les uns les autres')
+# st.image(lien_image2)
+col1, col2,col3 = st.columns([1, 3, 1])
+col1.write("")
+image_path = "https://static.wixstatic.com/media/ede727_f05b8b1ac9f74d8ea06caac1590ad3e3~mv2.jpeg/v1/fill/w_1000,h_524,al_c,q_85,usm_0.66_1.00_0.01/ede727_f05b8b1ac9f74d8ea06caac1590ad3e3~mv2.jpeg"
+col2.image(image_path, caption="Your Image", use_column_width=True)
+col2.write("")
+col3.write("")
 
 # je crée les widgets 
 options = {
@@ -25,6 +32,7 @@ options = {
 
 }
 
+
 # Création du formulaire
 with st.form("Quelle est ta valeur?"):
     # Création des widgets
@@ -36,7 +44,6 @@ with st.form("Quelle est ta valeur?"):
     for key, values in options.items():
         user_data[key] = st.selectbox(key, values)
     submitted = st.form_submit_button("Yes, you are gorgeous")
-st.write(user_data)
 
 # Si le formulaire est soumis je crée un df avec les données de l'utilisateur
 if submitted:
