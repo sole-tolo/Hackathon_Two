@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 
 
 # Chargement des données
-url = 'https://github.com/sole-tolo/Hackathon_Two/blob/main/data_hack2.csv'
+url = 'https://raw.githubusercontent.com/sole-tolo/Hackathon_Two/main/data_hack2.csv'
 df = pd.read_csv(url)
 
 # Mise en forme de la page
