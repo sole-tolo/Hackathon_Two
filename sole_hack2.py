@@ -11,10 +11,19 @@ df = pd.read_csv(url)
 # Mise en forme de la page
 st.title('Bienvenue dans le meilleur des mondes')
 
+page_bg_img = '''
+<style>
+body {
+background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mirror_logo.svg/1200px-Black_Mirror_logo.svg.png");
+background-size: cover;
+}
+</style>
+'''
 
-image_path = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mirror_logo.svg/1200px-Black_Mirror_logo.svg.png"
-st.image(image_path, caption="Your Image", use_column_width=1000)
-st.header('Votez-vous les uns les autres')
+st.markdown(page_bg_img, unsafe_allow_html=True)
+# image_path = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mirror_logo.svg/1200px-Black_Mirror_logo.svg.png"
+# st.image(image_path, caption="Your Image", use_column_width=1000)
+# st.header('Votez-vous les uns les autres')
 
 # Contenu dans la barre latérale à gauche
 with st.sidebar:
