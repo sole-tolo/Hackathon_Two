@@ -14,12 +14,12 @@ df = pd.read_csv(url)
 st.title('Bienvenue dans le meilleur des mondes')
 st.header('Notez-vous les uns les autres')
 
-# Créer une interface utilisateur pour saisir les données personnelles
-input_public = {}
-for colonne in df.columns:
-    if colonne != 'Score':
-        valeur = st.text_input(colonne, "")
-        input_public[colonne] = valeur
+# # Créer une interface utilisateur pour saisir les données personnelles
+# input_public = {}
+# for colonne in df.columns:
+#     if colonne != 'Score':
+#         valeur = st.text_input(colonne, "")
+#         input_public[colonne] = valeur
 
 # # Algo de recommandation
 # label_encoder = LabelEncoder()
