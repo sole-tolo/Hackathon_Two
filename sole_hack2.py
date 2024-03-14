@@ -41,8 +41,8 @@ if submitted:
     user_data_dict = {key: [value] for key, value in user_data.items()}
     user_df = pd.DataFrame(user_data_dict)
 
-    # Construire X avec les données de l'utilisateur
-    X = user_df
+    # je défini mes variables 
+    X = df.drop(columns=['Score'])
     y = df['Score']  
 
     # j'encode les données pour l'algo
