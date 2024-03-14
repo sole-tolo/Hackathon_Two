@@ -60,3 +60,5 @@ if submitted:
     prediction = model.predict(user_df)
 
     st.write('Votre score prédit est :', prediction[0])  
+
+st.dataframe(user_df)
