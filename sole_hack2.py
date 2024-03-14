@@ -14,6 +14,38 @@ image_path = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mi
 st.image(image_path, caption="Your Image", use_column_width=1000)
 st.header('Votez-vous les uns les autres')
 
+
+# votation des élèves entre eux
+
+def main():
+    # Mise en forme de la page
+    st.write("Répondez aux questions suivantes pour noter ton camarade.")
+
+    # Initialiser le score
+    score = 0
+
+    # Question 1: Allumé la caméra pendant les présentations?
+    camera_on = st.radio("A-t-il ou elle allumé la caméra pendant les présentations?", ("Oui", "Non"))
+    if camera_on == "Oui":
+        score += 0.5
+
+    # Question 2: Sourit-il pendant les présentations des autres?
+    smiling = st.radio("Sourit-il ou elle pendant les présentations des autres?", ("Oui", "Non"))
+    if smiling == "Oui":
+        score += 0.5
+
+    # Question 3 (si la caméra est allumée): Le décor est-il crédible?
+    if camera_on == "Oui":
+        credible_decor = st.radio("Si la caméra est allumée, est-ce que son décor est crédible?", ("Oui", "Non"))
+        if credible_decor == "Oui":
+            score += 0.5
+
+    # Affichage du score final
+    st.write(f"Score final: {score} sur 2")
+
+if __name__ == "__main__":
+    main()
+
 # Contenu dans la barre latérale à gauche
 with st.sidebar:
     st.title('Formulaire')
