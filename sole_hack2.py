@@ -14,13 +14,28 @@ df = pd.read_csv(url)
 st.title('Bienvenue dans le meilleur des mondes')
 st.header('Notez-vous les uns les autres')
 
-# interface utilisateur
-niveau_diplome = st.selectbox('Niveau de diplôme', ['Bac', 'Bac +2', 'Bac +3', 'Bac +5', 'Doctorat', 'Pas de diplôme'])
-genre = st.selectbox('Genre', ['Homme', 'Femme', 'Autre'])
-quartier = st.selectbox('Quartier', ['Centre-ville', 'Banlieue', 'Campagne'])
-classe_sociale = st.selectbox('Classe sociale', ['Classe moyenne', 'Classe supérieure', 'Classe populaire'])
-ecole_enfants = st.selectbox('École des enfants', ['Privée', 'Publique'])
-femme_menage = st.selectbox('Dispose de femme de ménage', ['Oui', 'Non'])
-casier_judiciaire = st.selectbox('Casier judiciaire', ['Vierge', 'Non vierge'])
-niveau_social_parents = st.selectbox('Niveau social des parents', ['Bac', 'Bac +2', 'Bac +3', 'Bac +5', 'Doctorat', 'Pas de diplôme'])
-cinema = st.radio('Va souvent au cinéma', ['Oui', 'Non'])
+
+model = LinearRegression()
+options = {
+    'Niveau de diplôme': ['Bac', 'Bac +2', 'Bac +3', 'Bac +5', 'Doctorat', 'Pas de diplôme'],
+    'Genre': ['Homme', 'Femme', 'Autre'],
+    'Quartier': ['Centre-ville', 'Banlieue', 'Campagne'],
+    'Classe sociale': ['Classe moyenne', 'Classe supérieure', 'Classe populaire'],
+    'École des enfants': ['Privée', 'Publique'],
+    'Dispose de femme de ménage': ['Oui', 'Non'],
+    'Casier judiciaire': ['Vierge', 'Non vierge'],
+    'Niveau social des parents': ['Bac', 'Bac +2', 'Bac +3', 'Bac +5', 'Doctorat', 'Pas de diplôme'],
+    'Va souvent au cinéma': ['Oui', 'Non']
+}
+user_data = {}
+for key, values in options.items():
+    user_data[key] = st.selectbox(key, values)
+user_df = pd.DataFrame(user_data, index=[0])
+
+label_encoder = LabelEncoder()
+for colonne in user_df.columns:
+    user_df[colonne] = label_encoder.fit_transform(user_df[colonne])
+
+prediction = model.predict(user_df)
+
+st.write('Votre score prédit est :', prediction[0])
