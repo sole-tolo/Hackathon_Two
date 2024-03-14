@@ -13,7 +13,7 @@ df = pd.read_csv(url)
 st.title('Bienvenue dans le meilleur des mondes')
 st.header('Notez-vous les uns les autres')
 
-model = LinearRegression()
+
 # je crée les widgets 
 
 options = {
@@ -37,7 +37,9 @@ with st.form("Quelle est ta valeur?"):
 
 # Si le formulaire est soumis je crée un df avec les données de l'utilisateur
 if submitted:
-    user_data_dict = {key: [value] for key, value in user_data.items()}
+    user_data_dict = {}
+    for key,value in user_data.items():
+        user_data_dict[key] = value
     user_df = pd.DataFrame(user_data_dict)
 
     # je défini mes variables 
@@ -50,6 +52,7 @@ if submitted:
         user_df[colonne] = label_encoder.fit_transform(user_df[colonne])
 
     # Entraîner le modèle
+    model = LinearRegression()
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     model.fit(X_train, y_train)
 
