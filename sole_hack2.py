@@ -8,22 +8,18 @@ from sklearn.model_selection import train_test_split
 url = 'https://raw.githubusercontent.com/sole-tolo/Hackathon_Two/main/data_hack2.csv'
 df = pd.read_csv(url)
 
-# Définition du code HTML/CSS pour définir une image en fond d'écran
-background = """
-<style>
-body {
-    background-image: url('https://img.seriebox.com/series/3/3155/_600_300/black-mirror_1523353177.jpg');
-    background-size: cover;
-}
-</style>
-"""
-
-# Affichage du code HTML/CSS avec st.markdown
-st.markdown(background, unsafe_allow_html=True)
-
 # Mise en forme de la page
 st.title('Bienvenue dans le meilleur des mondes')
 st.header('Notez-vous les uns les autres')
+
+# Contenu principal centré
+col1, col2, col3 = st.columns([1, 3, 1])
+
+# Affichage du titre, de l'en-tête et de l'image dans la partie centrale
+with col2:
+    image_path = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mirror_logo.svg/1200px-Black_Mirror_logo.svg.png"
+    st.image(image_path, caption="Your Image", use_column_width=1000)
+    st.header('Prenez quelques minutes pour découvrir TOP5, notre nouveau système de notation du bonheur')
 
 # Contenu dans la barre latérale à gauche
 with st.sidebar:
