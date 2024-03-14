@@ -25,25 +25,32 @@ with st.form("evaluation_form"):
     # Question 1: Allumé la caméra pendant les présentations?
     camera_on = st.radio("A-t-il allumé la caméra pendant les présentations?", ("Oui", "Non"))
     if camera_on == "Oui":
-        score += 0.5
+        score += 0.8
 
     # Question 2: Sourit-il pendant les présentations des autres?
     smiling = st.radio("Sourit-il pendant les présentations des autres?", ("Oui", "Non"))
     if smiling == "Oui":
-        score += 0.5
+        score += 0.4
 
     # Question 3 (si la caméra est allumée): Le décor est-il crédible?
     if camera_on == "Oui":
         credible_decor = st.radio("Si la caméra est allumée, est-ce que son décor est crédible?", ("Oui", "Non"))
         if credible_decor == "Oui":
-            score += 0.5
-    
-    # Soumission du formulaire
+            score += 1
+    # Question 4 : est-ce qu'il/elle est quelqu'un de poli? 
+    sociable=st.radio('Penses-tu que ton collègue est sociable?',('Oui','Non'))
+    if sociable =='Oui':
+        score+=0.5
+    else:
+        score = score - 0.5
+           
+        # Soumission du formulaire
     submit_button = st.form_submit_button("Submit")
 
 # Affichage du score final après la soumission du formulaire
 if submit_button:
-    st.write(f"Score final: {score} sur 2")
+    st.write(f" Ton score final est de: {score}")
+    score=0
   
 
 # Contenu dans la barre latérale à gauche
