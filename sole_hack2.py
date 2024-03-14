@@ -45,14 +45,9 @@ if submitted:
         user_data_dict[key] = value
     user_df = pd.DataFrame(user_data_dict)
 
-    # j'encode les données pour l'algo
-    label_encoder = LabelEncoder()
-
-    # Enregistrer les catégories utilisées pour l'encodage
-    encoded_categories = {}
+    # j'encode les données utilisateur avec les mêmes catégories que celles de la df d'entraînement
     for colonne in user_df.columns:
-        encoded_categories[colonne] = list(user_df[colonne].unique())
-        user_df[colonne] = label_encoder.fit(encoded_categories[colonne]).transform(user_df[colonne])
+        user_df[colonne] = label_encoder.fit(df[colonne]).transform(user_df[colonne])
 
     # je défini mes variables 
     X = df.drop(columns=['Score'])
