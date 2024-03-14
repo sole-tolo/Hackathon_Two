@@ -16,7 +16,7 @@ st.header('Notez-vous les uns les autres')
 background = """
 <style>
 body {
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mirror_logo.svg/1200px-Black_Mirror_logo.svg.png');
+    background-image: url('https://img.seriebox.com/series/3/3155/_600_300/black-mirror_1523353177.jpg');
     background-size: cover;
 }
 </style>
