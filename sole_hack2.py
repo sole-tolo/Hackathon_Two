@@ -14,13 +14,7 @@ df = pd.read_csv(url)
 st.title('Bienvenue dans le meilleur des mondes')
 st.header('Notez-vous les uns les autres')
 
-
 model = LinearRegression()
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-model.fit(X_train, y_train)
-X = df.drop(columns=['Score'])
-y = df['Score']
-
 # je crée les widgets 
 
 options = {
@@ -47,15 +41,19 @@ if submitted:
     user_data_dict = {key: [value] for key, value in user_data.items()}
     user_df = pd.DataFrame(user_data_dict)
 
-# j'encode les données pour l'algo
-label_encoder = LabelEncoder()
-for colonne in user_df.columns:
-    user_df[colonne] = label_encoder.fit_transform(user_df[colonne])
+    # Construire X avec les données de l'utilisateur
+    X = user_df
 
-# j'entraine le modèle
-    
+    # j'encode les données pour l'algo
+    label_encoder = LabelEncoder()
+    for colonne in user_df.columns:
+        user_df[colonne] = label_encoder.fit_transform(user_df[colonne])
 
+    # Entraîner le modèle
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    model.fit(X_train, y_train)
 
-prediction = model.predict(user_df)
+    # Faire une prédiction avec le modèle
+    prediction = model.predict(user_df)
 
-st.write('Votre score prédit est :', prediction[0])
+    st.write('Votre score prédit est :', prediction[0])
