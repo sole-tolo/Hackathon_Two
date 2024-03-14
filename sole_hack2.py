@@ -21,13 +21,13 @@ with col1:
 
     # Image à côté du texte
     image_path = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mirror_logo.svg/1200px-Black_Mirror_logo.svg.png"
-    st.image(image_path, caption="Your Image", use_column_width=500)
+    st.image(image_path, caption="Your Image", use_column_width=400)
 
 # Initialisation du score
 score = 0
 
 # Création du formulaire centré
-with col2:
+with col1:
     with st.form("evaluation_form"):
         # Question 1: Allumé la caméra pendant les présentations?
         camera_on = st.radio("A-t-il allumé la caméra pendant les présentations?", ("Oui", "Non"))
