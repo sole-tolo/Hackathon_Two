@@ -15,13 +15,13 @@ st.title("Évaluation de la participation à une réunion virtuelle")
 col1, col2, col3 = st.columns([1, 3, 1])
 
 # Contenu principal centré
-with col1:
+with col2:
     # Texte
     st.write("Votez-vous les uns les autres.")
 
     # Image à côté du texte
     image_path = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mirror_logo.svg/1200px-Black_Mirror_logo.svg.png"
-    st.image(image_path, caption="Your Image", use_column_width=400)
+    st.image(image_path, caption="Your Image", use_column_width=500)
 
 # Initialisation du score
 score = 0
