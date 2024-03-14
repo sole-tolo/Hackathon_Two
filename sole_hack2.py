@@ -42,6 +42,7 @@ if submitted:
         user_data_dict[key] = value
     user_df = pd.DataFrame([user_data_dict], index=[0])  # Spécifier l'index pour une seule ligne de données
     st.dataframe(user_df)
+    st.dataframe(df)
     # j'encode les données utilisateur avec les mêmes catégories que celles de la df d'entraînement
     label_encoder = LabelEncoder()
     for colonne in user_df.columns:
