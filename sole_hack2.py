@@ -27,11 +27,19 @@ options = {
     'Niveau social des parents': ['Bac', 'Bac +2', 'Bac +3', 'Bac +5', 'Doctorat', 'Pas de diplôme'],
     'Va souvent au cinéma': ['Oui', 'Non']
 }
+
+with st.form("Quelle est ta valeur?")
+# je vais créer mes widgets
 user_data = {}
 for key, values in options.items():
     user_data[key] = st.selectbox(key, values)
-user_df = pd.DataFrame(user_data, index=[0])
+submitted = st.form_submit_button("Submit")
 
+# Si le formulaire est soumis je crée un df avec les données de l'utilisateur
+if submitted:
+    user_df=pd.DataFrame(user_data,index=[0])
+
+# j'encode les données pour l'algo
 label_encoder = LabelEncoder()
 for colonne in user_df.columns:
     user_df[colonne] = label_encoder.fit_transform(user_df[colonne])
