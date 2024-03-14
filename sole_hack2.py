@@ -30,6 +30,10 @@ options = {
 with st.form("Quelle est ta valeur?"):
     # Création des widgets
     user_data = {}
+    user_data['Age'] =st.number_input("Age")
+    user_data['Salaire(€)'] =st.number_input("Salaire")
+    user_data["Prix au mètre carré de l'habitation(€/m2)"] =st.number_input("prix au m2 de ton lieu d'habitation")
+
     for key, values in options.items():
         user_data[key] = st.selectbox(key, values)
     submitted = st.form_submit_button("Yes, you are gorgeous")
