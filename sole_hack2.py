@@ -8,12 +8,13 @@ from sklearn.model_selection import train_test_split
 url = 'https://raw.githubusercontent.com/sole-tolo/Hackathon_Two/main/data_hack2.csv'
 df = pd.read_csv(url)
 
-# Mise en forme de la page  
+# Mise en forme de la page
 st.title('Bienvenue dans le meilleur des mondes')
-st.header('Prenez quelques minutes pour voter vos camarades')
+
 
 image_path = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mirror_logo.svg/1200px-Black_Mirror_logo.svg.png"
-
+st.image(image_path, caption="Your Image", use_column_width=1000)
+st.header('Votez-vous les uns les autres')
 
 # Contenu dans la barre latérale à gauche
 with st.sidebar:
