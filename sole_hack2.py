@@ -27,7 +27,7 @@ with col1:
 score = 0
 
 # Création du formulaire centré
-with col1:
+with col2:
     with st.form("evaluation_form"):
         # Question 1: Allumé la caméra pendant les présentations?
         camera_on = st.radio("A-t-il allumé la caméra pendant les présentations?", ("Oui", "Non"))
