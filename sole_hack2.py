@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 url = 'https://raw.githubusercontent.com/sole-tolo/Hackathon_Two/main/data_hack2.csv'
 df = pd.read_csv(url)
 
-# Mise en forme de la page
+# Mise en forme de la page  
 st.title('Bienvenue dans le meilleur des mondes')
 st.header('Prenez quelques minutes pour voter vos camarades')
 
