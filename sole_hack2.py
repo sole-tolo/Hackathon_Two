@@ -58,4 +58,4 @@ if submitted:
     # Faire une prédiction avec le modèle
     prediction = model.predict(user_df)
 
-    st.write('Votre score prédit est :', prediction[0])
+    st.write('Votre score prédit est :', prediction[0])  
