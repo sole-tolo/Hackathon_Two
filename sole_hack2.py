@@ -17,7 +17,7 @@ col1, col2, col3 = st.columns([1, 3, 1])
 
 # Affichage du titre, de l'en-tête et de l'image dans la partie centrale
 with col2:
-    image_path = "https://static.wixstatic.com/media/ede727_f05b8b1ac9f74d8ea06caac1590ad3e3~mv2.jpeg/v1/fill/w_1000,h_524,al_c,q_85,usm_0.66_1.00_0.01/ede727_f05b8b1ac9f74d8ea06caac1590ad3e3~mv2.jpeg"
+    image_path = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mirror_logo.svg/1200px-Black_Mirror_logo.svg.png"
     st.image(image_path, caption="Your Image", use_column_width=800)
     st.header('Prenez quelques minutes pour découvrir TOP5, notre nouveau système de notation du bonheur')
 
