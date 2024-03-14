@@ -12,8 +12,6 @@ df = pd.read_csv(url)
 image_path = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mirror_logo.svg/1200px-Black_Mirror_logo.svg.png"
 st.image(image_path, caption="Your Image", use_column_width=1000)
 
-
-
 st.write("Votez-vous les uns les autres.")
 
 # Initialisation du score
@@ -52,7 +50,7 @@ if submit_button:
 
 # Contenu dans la barre latérale à gauche
 with st.sidebar:
-    st.title('Formulaire')
+    st.title('Voici ton score personnel')
     
     # Création des widgets
     options = {
