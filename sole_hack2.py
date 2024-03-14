@@ -38,6 +38,7 @@ with st.form("Quelle est ta valeur?"):
 # Si le formulaire est soumis je crée un df avec les données de l'utilisateur
 if submitted:
     user_df=pd.DataFrame(user_data,index=[0])
+    st.write(user_df)
 
 # j'encode les données pour l'algo
 label_encoder = LabelEncoder()
