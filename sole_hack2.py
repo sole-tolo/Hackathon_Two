@@ -9,81 +9,74 @@ url = 'https://raw.githubusercontent.com/sole-tolo/Hackathon_Two/main/data_hack2
 df = pd.read_csv(url)
 
 # Mise en forme de la page
+st.title('Bienvenue dans le meilleur des mondes')
+st.header('Notez-vous les uns les autres')
+
+# Contenu principal centré
 col1, col2, col3 = st.columns([1, 3, 1])
 
-with col2:  # Colonne centrale
-    st.title('Bienvenue dans le meilleur des mondes')
-    st.header('Notez-vous les uns les autres')
-    
-    # Insérer d'autres éléments au besoin
-
-# Ajouter des colonnes vides pour l'espacement
-col1.write("")
-col3.write("")
-
-# Afficher une image centrée dans la colonne du milieu
+# Affichage du titre, de l'en-tête et de l'image dans la partie centrale
 with col2:
     image_path = "https://static.wixstatic.com/media/ede727_f05b8b1ac9f74d8ea06caac1590ad3e3~mv2.jpeg/v1/fill/w_1000,h_524,al_c,q_85,usm_0.66_1.00_0.01/ede727_f05b8b1ac9f74d8ea06caac1590ad3e3~mv2.jpeg"
     st.image(image_path, caption="Your Image", use_column_width=800)
     st.header('Prenez quelques minutes pour découvrir TOP5, notre nouveau système de notation du bonheur')
 
-
-
-# je crée les widgets 
-options = {
-    'Niveau de diplôme': ['Bac', 'Bac +2', 'Bac +3', 'Bac +5', 'Doctorat', 'Pas de diplôme'],
-    'Quartier': ['Centre-ville', 'Banlieue', 'Campagne'],
-    'Classe sociale': ['Classe moyenne', 'Classe supérieure', 'Classe populaire'],
-    'École des enfants': ['Privée', 'Publique'],
-    'Dispose de femme de ménage': ['Oui', 'Non'],
-    'Casier judiciaire': ['Vierge', 'Non vierge'],
-    'Niveau social des parents': ['Bac', 'Bac +2', 'Bac +3', 'Bac +5', 'Doctorat', 'Pas de diplôme'],
-    'Va souvent au cinéma': ['Oui', 'Non']
-
-}
-
-
-# Création du formulaire
-with st.form("Quelle est ta valeur?"):
+# Contenu dans la barre latérale à gauche
+with st.sidebar:
+    st.title('Formulaire')
+    
     # Création des widgets
-    user_data = {'Niveau de diplôme':'','Quartier':'','Salaire(€)':0,'Classe sociale':'','École des enfants':'','Dispose de femme de ménage':'', 
-                 "Prix au mètre carré de l'habitation(€/m2)":0,'Casier judiciaire':'',"Niveau social des parents":"",'Va souvent au cinéma':""}
-    user_data['Salaire(€)'] =st.number_input("Salaire(€)")
-    user_data["Prix au mètre carré de l'habitation(€/m2)"] =st.number_input("prix au m2 de ton lieu d'habitation")
+    options = {
+        'Niveau de diplôme': ['Bac', 'Bac +2', 'Bac +3', 'Bac +5', 'Doctorat', 'Pas de diplôme'],
+        'Quartier': ['Centre-ville', 'Banlieue', 'Campagne'],
+        'Classe sociale': ['Classe moyenne', 'Classe supérieure', 'Classe populaire'],
+        'École des enfants': ['Privée', 'Publique'],
+        'Dispose de femme de ménage': ['Oui', 'Non'],
+        'Casier judiciaire': ['Vierge', 'Non vierge'],
+        'Niveau social des parents': ['Bac', 'Bac +2', 'Bac +3', 'Bac +5', 'Doctorat', 'Pas de diplôme'],
+        'Va souvent au cinéma': ['Oui', 'Non']
+    }
 
-    for key, values in options.items():
-        user_data[key] = st.selectbox(key, values)
-    submitted = st.form_submit_button("Yes, you are gorgeous")
+    with st.form("Quelle est ta valeur?"):
+        # Création des widgets
+        user_data = {'Niveau de diplôme':'','Quartier':'','Salaire(€)':0,'Classe sociale':'','École des enfants':'','Dispose de femme de ménage':'', 
+                     "Prix au mètre carré de l'habitation(€/m2)":0,'Casier judiciaire':'',"Niveau social des parents":"",'Va souvent au cinéma':""}
+        user_data['Salaire(€)'] =st.number_input("Salaire(€)")
+        user_data["Prix au mètre carré de l'habitation(€/m2)"] =st.number_input("prix au m2 de ton lieu d'habitation")
 
-# Si le formulaire est soumis je crée un df avec les données de l'utilisateur
-if submitted:
-    # Création du DataFrame avec les données utilisateur
-    user_data_dict = {}
-    for key, value in user_data.items():
-        user_data_dict[key] = value
-    user_df = pd.DataFrame([user_data_dict], index=[0])  # Spécifier l'index pour une seule ligne de données
-    st.dataframe(user_df)
-    st.dataframe(df)
-    # j'encode les données utilisateur avec les mêmes catégories que celles de la df d'entraînement
-    label_encoder = LabelEncoder()
+        for key, values in options.items():
+            user_data[key] = st.selectbox(key, values)
+        submitted = st.form_submit_button("Yes, you are gorgeous")
 
-    for colonne in user_df.select_dtypes(include=['object']).columns:
-        user_df[colonne] = label_encoder.fit(user_df[colonne]).transform(user_df[colonne])
+    # Si le formulaire est soumis, afficher les prédictions
+    if submitted:
+        # Création du DataFrame avec les données utilisateur
+        user_data_dict = {}
+        for key, value in user_data.items():
+            user_data_dict[key] = value
+        user_df = pd.DataFrame([user_data_dict], index=[0])  # Spécifier l'index pour une seule ligne de données
 
-    # je défini mes variables 
-    X = df.drop(columns=['Score','Age','Genre'])
-    y = df['Score']  
+        # j'encode les données utilisateur avec les mêmes catégories que celles de la df d'entraînement
+        label_encoder = LabelEncoder()
 
-    # Entraîner le modèle
-    model = LinearRegression()
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    model.fit(X_train, y_train)
-    #Faire une prédiction avec le modèle
-    prediction = model.predict(user_df)
+        for colonne in user_df.select_dtypes(include=['object']).columns:
+            user_df[colonne] = label_encoder.fit(user_df[colonne]).transform(user_df[colonne])
 
-    st.write(model.score(X_train,y_train))
-    st.write(model.score(X_test,y_test))
+        # je défini mes variables 
+        X = df.drop(columns=['Score','Age','Genre'])
+        y = df['Score']  
 
+        # Entraîner le modèle
+        model = LinearRegression()
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+        model.fit(X_train, y_train)
 
-    st.write('Votre score prédit est :', prediction[0])  
+        # Faire une prédiction avec le modèle
+        prediction = model.predict(user_df)
 
+        # Afficher les scores R² du modèle sur les ensembles d'entraînement et de test
+        st.write(model.score(X_train, y_train))
+        st.write(model.score(X_test, y_test))
+
+        # Afficher la prédiction
+        st.write('Votre score prédit est :', prediction[0])
