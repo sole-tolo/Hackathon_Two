@@ -5,6 +5,9 @@ import pandas as pd
 file_path = r"C:\Users\solea\Desktop\Hackathon2\data_hack2.csv"
 df = pd.read_csv(file_path)
 
-# Deco page
-st.title('Bienvenu.es dans le meilleurs des mondes')
-st.write ( "Notez-vous les uns les autres")
+# Début de la page
+st.title('Bienvenue dans le meilleur des mondes')
+st.write("Notez-vous les uns les autres")
+
+# Affichage du DataFrame
+st.write(df)
