@@ -14,15 +14,15 @@ st.header('Notez-vous les uns les autres')
 
 # je crée les widgets 
 options = {
-    # 'Niveau de diplôme': ['Bac', 'Bac +2', 'Bac +3', 'Bac +5', 'Doctorat', 'Pas de diplôme'],
+    'Niveau de diplôme': ['Bac', 'Bac +2', 'Bac +3', 'Bac +5', 'Doctorat', 'Pas de diplôme'],
     'Genre': ['Homme', 'Femme', 'Autre'],
-    # 'Quartier': ['Centre-ville', 'Banlieue', 'Campagne'],
-    # 'Classe sociale': ['Classe moyenne', 'Classe supérieure', 'Classe populaire'],
-    # 'École des enfants': ['Privée', 'Publique'],
-    # 'Dispose de femme de ménage': ['Oui', 'Non'],
-    # 'Casier judiciaire': ['Vierge', 'Non vierge'],
-    # 'Niveau social des parents': ['Bac', 'Bac +2', 'Bac +3', 'Bac +5', 'Doctorat', 'Pas de diplôme'],
-    # 'Va souvent au cinéma': ['Oui', 'Non']
+    'Quartier': ['Centre-ville', 'Banlieue', 'Campagne'],
+    'Classe sociale': ['Classe moyenne', 'Classe supérieure', 'Classe populaire'],
+    'École des enfants': ['Privée', 'Publique'],
+    'Dispose de femme de ménage': ['Oui', 'Non'],
+    'Casier judiciaire': ['Vierge', 'Non vierge'],
+    'Niveau social des parents': ['Bac', 'Bac +2', 'Bac +3', 'Bac +5', 'Doctorat', 'Pas de diplôme'],
+    'Va souvent au cinéma': ['Oui', 'Non']
 }
 
 # Création du formulaire
@@ -41,7 +41,7 @@ if submitted:
     for key, value in user_data.items():
         user_data_dict[key] = value
     user_df = pd.DataFrame([user_data_dict], index=[0])  # Spécifier l'index pour une seule ligne de données
-
+    st.dataframe(user_df)
     # j'encode les données utilisateur avec les mêmes catégories que celles de la df d'entraînement
     label_encoder = LabelEncoder()
     for colonne in user_df.columns:
@@ -61,4 +61,3 @@ if submitted:
 
     st.write('Votre score prédit est :', prediction[0])  
 
-st.dataframe(user_df)
