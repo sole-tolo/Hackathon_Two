@@ -9,7 +9,7 @@ url = 'https://raw.githubusercontent.com/sole-tolo/Hackathon_Two/main/data_hack2
 df = pd.read_csv(url)
 
 # Mise en forme de la page
-st.title("Et maintenant, vote pour tes amis")
+st.title("Et maintenant, vote pour tes ami.e.s")
 
 # Conteneur de colonnes pour ajuster la mise en page
 col1, col2 = st.columns([1, 3])
@@ -47,8 +47,15 @@ with st.form("evaluation_form"):
         if credible_decor == "Oui":
             score += 0.5
 
-    # Question 4: Penses-tu que ton collègue est sociable?
-    sociable = st.radio("Penses-tu que ton collègue est sociable?", ("Oui", "Non"))
+    # Question 4: Penses-tu que ton collègue est violent?
+    violence = st.radio("Ton ou ta camarade montre des signes,même légers, de violence ou impolitesse?", ("Oui", "Non"))
+    if violence == "Oui":
+        score -= 0.3
+
+    # Question 5: Langage inclusif?
+    inclusif = st.radio("Est-ce que ton ou ta camarade parle en langage inclusif?", ("Oui", "Non"))
+    if inclusif =="Oui":
+        score-= 0.1
 
     # Soumission du formulaire
     submit_button = st.form_submit_button("Submit")
