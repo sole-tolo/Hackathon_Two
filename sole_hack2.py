@@ -16,7 +16,7 @@ def set_background():
     .stApp {
     background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mirror_logo.svg/1200px-Black_Mirror_logo.svg.png");
     background-size: cover;
-    opacity: 0.2;
+    opacity: 1;
     }
     </style>
     '''
