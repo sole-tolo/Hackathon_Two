@@ -33,9 +33,10 @@ col1, col2 = st.columns([1, 3])
 
 # Contenu de la première colonne (image)
 with col1:
-    # Image alignée à gauche
-    image_path = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mirror_logo.svg/1200px-Black_Mirror_logo.svg.png"
-    st.image(image_path, caption="Your Image", use_column_width=True)
+    pass
+    # # Image alignée à gauche
+    # image_path = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mirror_logo.svg/1200px-Black_Mirror_logo.svg.png"
+    # st.image(image_path, caption="Your Image", use_column_width=True)
 
 # Contenu de la deuxième colonne (texte)
 with col2:
