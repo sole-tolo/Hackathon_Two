@@ -23,7 +23,7 @@ with col1:
 # Contenu de la deuxième colonne (texte)
 with col2:
     # Titre et description
-    st.write("# A toi.")
+    st.write("# A toi de jouer")
     
 
 # Initialisation du score
