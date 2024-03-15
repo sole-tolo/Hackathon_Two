@@ -9,6 +9,23 @@ url = 'https://raw.githubusercontent.com/sole-tolo/Hackathon_Two/main/data_hack2
 df = pd.read_csv(url)
 
 # Mise en forme de la page
+
+def set_background():
+    page_bg_img = '''
+    <style>
+    .stApp {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mirror_logo.svg/1200px-Black_Mirror_logo.svg.png");
+    background-size: cover;
+    opacity: 0.5;
+    }
+    </style>
+    '''
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+
+set_background()
+
+
+
 st.title("Et maintenant, vote pour tes ami.e.s")
 
 # Conteneur de colonnes pour ajuster la mise en page
