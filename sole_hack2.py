@@ -41,11 +41,10 @@ with st.form("evaluation_form"):
     if smiling == "Oui":
         score += 0.5
 
-    # Question 3 (si la caméra est allumée): Le décor est-il crédible?
-    if camera_on == "Oui":
-        credible_decor = st.radio("Si la caméra est allumée, est-ce que son décor est crédible?", ("Oui", "Non"))
-        if credible_decor == "Oui":
-            score += 0.5
+    # Question 3 (ton camarade est il bien habillé?
+    dressing = st.radio(" Est-il ou elle bien habillé.e pour l'occasion?",("Oui", "Non"))
+    if  dressing == 'Oui':
+        score += 0.3
 
     # Question 4: Penses-tu que ton collègue est violent?
     violence = st.radio("Ton ou ta camarade montre des signes,même légers, de violence ou impolitesse?", ("Oui", "Non"))
