@@ -65,6 +65,11 @@ if submit_button:
     st.write(f"Score final: {score} sur 3")
     # Réinitialisation du score
     score = 0
+    camera_on = None
+    smiling = None
+    credible_decor = None
+    violence = None
+    inclusif = None
 
 # Contenu dans la barre latérale à gauche
 with st.sidebar:
