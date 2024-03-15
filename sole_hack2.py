@@ -65,12 +65,12 @@ with st.form("evaluation_form"):
         score += 0.3
 
     # Question 4: Penses-tu que ton collègue est violent?
-    violence = st.radio("Ton ou ta camarade montre des signes,même légers, de violence ou impolitesse?", ("Oui", "Non"))
+    violence = st.radio("Ton ou ta camarade montre des signes, même légers, de violence ou d'impolitesse?", ("Oui", "Non"))
     if violence == "Oui":
         score -= 0.3
 
     # Question 5: Langage inclusif?
-    inclusif = st.radio("Est-ce que ton ou ta camarade parle en langage inclusif?", ("Oui", "Non"))
+    inclusif = st.radio("Est-ce que ton ou ta camarade parle en language inclusif?", ("Oui", "Non"))
     if inclusif =="Oui":
         score-= 0.1
 
