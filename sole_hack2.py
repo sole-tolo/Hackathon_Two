@@ -4,6 +4,8 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 
+st.set_page_config(layout="wide")
+
 # Chargement des données
 url = 'https://raw.githubusercontent.com/sole-tolo/Hackathon_Two/main/data_hack2.csv'
 df = pd.read_csv(url)
@@ -24,23 +26,23 @@ def set_background():
 
 set_background()
 
-
-
-st.title("Et maintenant, vote pour tes ami.e.s")
-
 # Conteneur de colonnes pour ajuster la mise en page
-col1, col2 = st.columns([1, 3])
+col1, col2, col3 = st.columns([1, 3, 1])
 
-# Contenu de la première colonne (image)
-with col1:
-    pass
-    # # Image alignée à gauche
-    # image_path = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mirror_logo.svg/1200px-Black_Mirror_logo.svg.png"
-    # st.image(image_path, caption="Your Image", use_column_width=True)
+# # Contenu de la première colonne (image)
+# with col1:
+#     pass
+#     # # Image alignée à gauche
+#     # image_path = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Black_Mirror_logo.svg/1200px-Black_Mirror_logo.svg.png"
+#     # st.image(image_path, caption="Your Image", use_column_width=True)
 
-# Contenu de la deuxième colonne (texte)
+# # Contenu de la deuxième colonne (texte)
 with col2:
     # Titre et description
+    st.title("Et maintenant, vote pour tes ami.e.s")
+
+col1, col2, col3 = st.columns([1, 1, 1])
+with col2:
     st.write("# A toi de jouer")
     
 
@@ -49,30 +51,35 @@ score = 0
 
 # Création du formulaire
 with st.form("evaluation_form"):
-    # Question 1: Allumé la caméra pendant les présentations?
-    camera_on = st.radio("A-t-il ou elle allumé la caméra pendant les présentations?", ("Oui", "Non"))
-    if camera_on == "Oui":
-        score += 0.5
+    col1, col2, col3 = st.columns([1, 1, 1])
 
-    # Question 2: Sourit-il pendant les présentations des autres?
-    smiling = st.radio("Sourit-il ou elle pendant les présentations des autres?", ("Oui", "Non"))
-    if smiling == "Oui":
-        score += 0.5
+    with col1:
+        # Question 1: Allumé la caméra pendant les présentations?
+        camera_on = st.radio("A-t-il ou elle allumé la caméra pendant les présentations?", ("Oui", "Non"))
+        if camera_on == "Oui":
+            score += 0.5
 
-    # Question 3 (ton camarade est il bien habillé?
-    dressing = st.radio(" Est-il ou elle bien habillé.e pour l'occasion?",("Oui", "Non"))
-    if  dressing == 'Oui':
-        score += 0.3
+        # Question 2: Sourit-il pendant les présentations des autres?
+        smiling = st.radio("Sourit-il ou elle pendant les présentations des autres?", ("Oui", "Non"))
+        if smiling == "Oui":
+            score += 0.5
 
-    # Question 4: Penses-tu que ton collègue est violent?
-    violence = st.radio("Ton ou ta camarade montre des signes, même légers, de violence ou d'impolitesse?", ("Oui", "Non"))
-    if violence == "Oui":
-        score -= 0.3
+    with col2:
+        # Question 3 (ton camarade est il bien habillé?
+        dressing = st.radio(" Est-il ou elle bien habillé.e pour l'occasion?",("Oui", "Non"))
+        if  dressing == 'Oui':
+            score += 0.3
 
-    # Question 5: Langage inclusif?
-    inclusif = st.radio("Est-ce que ton ou ta camarade parle en langage inclusif?", ("Oui", "Non"))
-    if inclusif =="Oui":
-        score-= 0.1
+        # Question 4: Penses-tu que ton collègue est violent?
+        violence = st.radio("Ton ou ta camarade montre des signes, même légers, de violence ou d'impolitesse?", ("Oui", "Non"))
+        if violence == "Oui":
+            score -= 0.3
+
+    with col3:
+        # Question 5: Langage inclusif?
+        inclusif = st.radio("Est-ce que ton ou ta camarade parle en langage inclusif?", ("Oui", "Non"))
+        if inclusif =="Oui":
+            score-= 0.1
 
     # Soumission du formulaire
     submit_button = st.form_submit_button("Submit")
