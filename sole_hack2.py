@@ -75,7 +75,7 @@ if submit_button:
 
 # Contenu dans la barre latérale à gauche
 with st.sidebar:
-    st.title('Voici ton score personnel')
+    st.title('Quelle est ta valeur de base?')
     
     # Création des widgets
     options = {
