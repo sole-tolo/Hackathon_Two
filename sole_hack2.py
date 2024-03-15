@@ -62,6 +62,7 @@ with st.form("evaluation_form"):
 # Affichage du score final après la soumission du formulaire
 if submit_button:
     st.write(f"Score final: {score} sur 3")
+    st.write("Ton ami(e) a été évalué(e)! Félicitations!")
     # Réinitialisation du score
     score = 0
     camera_on = None
