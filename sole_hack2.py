@@ -32,12 +32,12 @@ score = 0
 # Création du formulaire
 with st.form("evaluation_form"):
     # Question 1: Allumé la caméra pendant les présentations?
-    camera_on = st.radio("A-t-il allumé la caméra pendant les présentations?", ("Oui", "Non"))
+    camera_on = st.radio("A-t-il ou elle allumé la caméra pendant les présentations?", ("Oui", "Non"))
     if camera_on == "Oui":
         score += 0.5
 
     # Question 2: Sourit-il pendant les présentations des autres?
-    smiling = st.radio("Sourit-il pendant les présentations des autres?", ("Oui", "Non"))
+    smiling = st.radio("Sourit-il ou elle pendant les présentations des autres?", ("Oui", "Non"))
     if smiling == "Oui":
         score += 0.5
 
